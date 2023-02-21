@@ -1,69 +1,45 @@
 package es.ieslavereda.exercise3;
 
 import es.ieslavereda.exercise1.Pet;
+import es.ieslavereda.exercise2.IPetRepository;
+
+import java.util.HashSet;
 import java.util.Set;
 
-public class MyModelTAD<T>{
+/**
+ * In order to simulate the behavior of the database, create a class allowing the animal storage. In order to do it, you have to:
+ * a.	Create a dynamic structure with generic types that allows all operations of the previous interface.
+ * b.	Create a class MyModelTAD that contain as attribute a generic list defined in the previous point.
+ * c.	Implement the IPetRepository interface.
+ */
 
-    private Node<T> head;
-    private int size;
+public class MyModelTAD implements IPetRepository {
 
+    private Lista<Pet> myPets;
     public MyModelTAD(){
-        head = null;
-        size = 0;
+        myPets = new Lista<>();
     }
 
-    public int size(){ return size;}
-    public boolean isEmpty() {return size==0;}
-
-    public void add(T elem){
-        Node<T> node = new Node<>(elem);
-        if(!isEmpty())
-            node.setNext(head);
-        head = node;
-        size++;
+    @Override
+    public void add(Pet pet) {
+        myPets.add(pet);
+    }
+    @Override
+    public Pet get(int id) {
+        return myPets.get(id);
+    }
+    @Override
+    public Pet remove(int id) {
+        return null;
     }
 
-    public T get(int index){
-        if (index < 0 || index >= size || isEmpty())
-            return null;
-        Node<T> aux = head;
-        for (int i = 0; i < index; i++) {
-            aux = aux.getNext();
+    @Override
+    public Set<Pet> getAll() {
+        Set<Pet> pets = new HashSet<>();
+        for (int i = 0; i < myPets.size(); i++) {
+            pets.add(myPets.get(i));
         }
-        return aux.getElem();
+        return pets;
     }
 
-    public T remove(int index){
-        if (index < 0 || index >= size || isEmpty())
-            return null;
-        Node<T> aux = head;
-        Node<T> aux2 = head.getNext();
-        if(index==0){
-            aux = head;
-            head = head.getNext();
-            size--;
-            return aux.getElem();
-        }
-        for (int i = 0; i < index-1; i++) {
-            aux = aux2;
-            aux2 = aux2.getNext();
-        }
-        aux.setNext(aux2.getNext());
-        size--;
-        return aux2.getElem();
-    }
-
-    private class Node<T>{
-        T elem;
-        Node<T> next;
-
-        public Node(T elem){
-            this.elem = elem;
-        }
-
-        public T getElem(){return elem;}
-        public Node<T> getNext(){return next;}
-        public void setNext(Node<T> node){next = node;}
-    }
 }
