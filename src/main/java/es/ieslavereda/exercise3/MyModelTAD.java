@@ -1,4 +1,4 @@
-package es.ieslavereda.exercise2;
+package es.ieslavereda.exercise3;
 
 import es.ieslavereda.exercise1.Pet;
 import java.util.Set;
@@ -18,51 +18,40 @@ public class MyModelTAD<T>{
 
     public void add(T elem){
         Node<T> node = new Node<>(elem);
-        if(isEmpty()){
-            head = node;
-        } else {
+        if(!isEmpty())
             node.setNext(head);
-            head = node;
-        }
+        head = node;
         size++;
     }
 
     public T get(int index){
-        if (index < 0 || index > size)
+        if (index < 0 || index >= size || isEmpty())
             return null;
         Node<T> aux = head;
         for (int i = 0; i < index; i++) {
-            aux = head;
+            aux = aux.getNext();
         }
         return aux.getElem();
     }
 
     public T remove(int index){
-        if (index < 0 || index > size)
+        if (index < 0 || index >= size || isEmpty())
             return null;
         Node<T> aux = head;
         Node<T> aux2 = head.getNext();
         if(index==0){
             aux = head;
             head = head.getNext();
+            size--;
             return aux.getElem();
         }
         for (int i = 0; i < index-1; i++) {
-            aux = head.getNext();
-            aux2 = head.getNext().getNext();
+            aux = aux2;
+            aux2 = aux2.getNext();
         }
-        return aux.getElem();
-    }
-
-    public boolean update(T elem){
-        Node<T> aux = head;
-        for (int i = 0; i < size; i++) {
-            if (elem.equals(aux.elem)){
-                return true;
-            }
-            aux = head.getNext();
-        }
-        return false;
+        aux.setNext(aux2.getNext());
+        size--;
+        return aux2.getElem();
     }
 
     private class Node<T>{
@@ -76,14 +65,5 @@ public class MyModelTAD<T>{
         public T getElem(){return elem;}
         public Node<T> getNext(){return next;}
         public void setNext(Node<T> node){next = node;}
-
-        @Override
-        public boolean equals(Object o){
-            if(!(o instanceof Node))
-                return false;
-            Node<T> node = (Node) o;
-            return elem.equals(node.getElem());
-        }
-
     }
 }

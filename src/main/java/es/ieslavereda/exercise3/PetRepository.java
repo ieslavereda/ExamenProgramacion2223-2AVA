@@ -2,7 +2,6 @@ package es.ieslavereda.exercise3;
 
 import es.ieslavereda.exercise1.Pet;
 import es.ieslavereda.exercise2.IPetRepository;
-import es.ieslavereda.exercise2.MyModelTAD;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -35,11 +34,6 @@ public class PetRepository implements IPetRepository {
     }
 
     @Override
-    public boolean update(Pet pet) {
-        return false;
-    }
-
-    @Override
     public Set<Pet> getAll() {
         Set<Pet> pets = new HashSet<>();
         for (int i = 0; i < myPets.size(); i++) {
@@ -47,7 +41,5 @@ public class PetRepository implements IPetRepository {
         }
         return pets;
     }
-
-
 
 }

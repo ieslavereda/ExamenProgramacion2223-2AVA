@@ -17,21 +17,12 @@ public interface IPetRepository {
      */
     public Pet get(int id);
 
-
     /**
      * Remove a pet by position
      * @param id position
      * @return the pet removed
      */
     public Pet remove(int id);
-
-    /**
-     * Update a pet
-     * @param pet to be updated
-     * @return whether the change was performed
-     */
-    public boolean update(Pet pet);
-
 
     /**
      * Get all pets
