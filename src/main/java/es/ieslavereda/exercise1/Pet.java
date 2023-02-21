@@ -2,7 +2,7 @@ package es.ieslavereda.exercise1;
 
 import java.util.Set;
 
-abstract class Pet implements Animal {
+public abstract class Pet {
 
     // ATTRIBUTES
     private String name;
@@ -23,7 +23,6 @@ abstract class Pet implements Animal {
     // ABSTRACT METHODS
     public abstract void speak();
 
-    // INTERFACE METHODS
     public void anniversary() {
         this.age++;
     }
