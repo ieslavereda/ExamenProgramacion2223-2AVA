@@ -2,7 +2,7 @@ package es.ieslavereda.exercise1;
 
 import java.util.Set;
 
-abstract class Bird extends Pet {
+public abstract class Bird extends Pet {
 
     // ATTRIBUTES
     private boolean fly;

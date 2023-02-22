@@ -6,13 +6,6 @@ import es.ieslavereda.exercise2.IPetRepository;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * In order to simulate the behavior of the database, create a class allowing the animal storage. In order to do it, you have to:
- * a.	Create a dynamic structure with generic types that allows all operations of the previous interface.
- * b.	Create a class MyModelTAD that contain as attribute a generic list defined in the previous point.
- * c.	Implement the IPetRepository interface.
- */
-
 public class MyModelTAD implements IPetRepository {
 
     private Lista<Pet> myPets;
@@ -20,17 +13,18 @@ public class MyModelTAD implements IPetRepository {
         myPets = new Lista<>();
     }
 
+    public int size(){ return myPets.size();}
     @Override
     public void add(Pet pet) {
         myPets.add(pet);
     }
     @Override
-    public Pet get(int id) {
-        return myPets.get(id);
+    public Pet get(int index) {
+        return myPets.get(index);
     }
     @Override
-    public Pet remove(int id) {
-        return null;
+    public Pet remove(int index) {
+        return myPets.remove(index);
     }
 
     @Override

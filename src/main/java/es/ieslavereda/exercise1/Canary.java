@@ -2,7 +2,7 @@ package es.ieslavereda.exercise1;
 
 import java.util.Set;
 
-class Canary extends Bird {
+public class Canary extends Bird {
 
     // ATTRIBUTES
     private boolean singing;

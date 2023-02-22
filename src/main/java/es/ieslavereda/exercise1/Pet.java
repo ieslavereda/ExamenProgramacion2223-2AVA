@@ -2,7 +2,7 @@ package es.ieslavereda.exercise1;
 
 import java.util.Set;
 
-public abstract class Pet {
+public abstract class Pet implements Comparable<Pet>{
 
     // ATTRIBUTES
     private String name;
@@ -63,6 +63,8 @@ public abstract class Pet {
         return (name.equals(pet.getName()) && owner.equals(pet.getOwner()) && age == pet.getAge());
     }
 
-
-
+    @Override
+    public int compareTo(Pet o) {
+        return name.compareTo(o.getName());
+    }
 }

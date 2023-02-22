@@ -2,7 +2,7 @@ package es.ieslavereda.exercise1;
 
 import java.util.Set;
 
-class Cat extends Pet {
+public class Cat extends Pet {
 
     // ATTRIBUTES
     private boolean longHair;
@@ -21,4 +21,5 @@ class Cat extends Pet {
     public boolean getLongHair() {
         return longHair;
     }
+
 }

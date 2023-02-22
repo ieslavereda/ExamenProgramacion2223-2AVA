@@ -12,17 +12,17 @@ public interface IPetRepository {
 
     /**
      * Get a pet by position
-     * @param id position
+     * @param index position
      * @return the pet in that position if exists
      */
-    public Pet get(int id);
+    public Pet get(int index);
 
     /**
      * Remove a pet by position
-     * @param id position
+     * @param index position
      * @return the pet removed
      */
-    public Pet remove(int id);
+    public Pet remove(int index);
 
     /**
      * Get all pets
