@@ -64,6 +64,11 @@ public abstract class Pet implements Comparable<Pet>{
     }
 
     @Override
+    public int hashCode() {
+        return name.hashCode();
+    }
+
+    @Override
     public int compareTo(Pet o) {
         return name.compareTo(o.getName());
     }

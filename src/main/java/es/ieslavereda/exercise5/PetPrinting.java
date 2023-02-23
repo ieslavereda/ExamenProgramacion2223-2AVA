@@ -35,11 +35,15 @@ public class PetPrinting {
 
 
         //List of all alive animals sorted by age.
-        petList.sort(PetRepository.SORT_AGE);
-        System.out.println(petList.stream().filter(Pet::getAlive).collect(Collectors.toList()));
+        System.out.println(petList.stream()
+                .filter(Pet::getAlive)
+                .sorted(PetRepository.SORT_AGE)
+                .collect(Collectors.toList()));
 
         //List of all white cats
-        List<Pet> whities = petList.stream().filter(pet -> pet.getColors().contains(Color.WHITE) && (pet instanceof Cat)).collect(Collectors.toList());
+        List<Pet> whities = petList.stream()
+                .filter(pet -> pet.getColors().contains(Color.WHITE) && (pet instanceof Cat))
+                .collect(Collectors.toList());
         System.out.println(whities);
 
     }
