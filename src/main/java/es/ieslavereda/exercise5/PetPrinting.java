@@ -23,13 +23,9 @@ public class PetPrinting {
         petRepository.add(pepa);
         petRepository.add(blanca);
         petRepository.add(island);
+        island.die();
 
         //List of all animals sorted alphabetically
-        for (int i = 0; i < petRepository.size(); i++) {
-            System.out.println(petRepository.get(i));
-        }
-
-        //List of all animals sorted alphabetically - B
         List<Pet> petList = new ArrayList<>();
         for (int i = 0; i < petRepository.size(); i++) {
             petList.add(petRepository.get(i));
@@ -37,12 +33,13 @@ public class PetPrinting {
         petList.sort(PetRepository.SORT_ALPH);
         System.out.println(petList);
 
+
         //List of all alive animals sorted by age.
         petList.sort(PetRepository.SORT_AGE);
-        System.out.println(petList);
+        System.out.println(petList.stream().filter(Pet::getAlive).collect(Collectors.toList()));
 
         //List of all white cats
-        List<Pet> whities = petList.stream().filter(pet -> pet.getColors().contains(Color.WHITE)).collect(Collectors.toList());
+        List<Pet> whities = petList.stream().filter(pet -> pet.getColors().contains(Color.WHITE) && (pet instanceof Cat)).collect(Collectors.toList());
         System.out.println(whities);
 
     }

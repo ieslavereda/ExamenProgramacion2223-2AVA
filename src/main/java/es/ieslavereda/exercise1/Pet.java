@@ -5,11 +5,11 @@ import java.util.Set;
 public abstract class Pet implements Comparable<Pet>{
 
     // ATTRIBUTES
-    private String name;
-    private String owner;
+    private final String name;
+    private final String owner;
     private int age;
     private boolean alive;
-    private Set<Color> colors;
+    private final Set<Color> colors;
 
     // CONSTRUCTOR
     public Pet(String name, String owner, int age, Set<Color> colors) {

@@ -4,21 +4,15 @@ import es.ieslavereda.exercise1.Pet;
 import es.ieslavereda.exercise2.IPetRepository;
 
 import java.util.Comparator;
-import java.util.Iterator;
+import java.util.LinkedHashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 public class PetRepository implements IPetRepository {
 
-    Set<Pet> pets;
+    final Set<Pet> pets;
 
-    public static final Comparator<Pet> SORT_ALPH = new Comparator<Pet>() {
-        @Override
-        public int compare(Pet o1, Pet o2) {
-            return o1.getName().compareTo(o2.getName());
-        }
-    };
-    public static final Comparator<Pet> SORT_AGE= new Comparator<Pet>() {
+    public static final Comparator<Pet> SORT_ALPH = (o1, o2) -> o1.getName().compareTo(o2.getName());
+    public static final Comparator<Pet> SORT_AGE= new Comparator<>() {
         @Override
         public int compare(Pet o1, Pet o2) {
             return o1.getAge()- o2.getAge();
@@ -26,7 +20,7 @@ public class PetRepository implements IPetRepository {
     };
 
     public PetRepository(){
-        pets = new TreeSet<>();
+        pets = new LinkedHashSet<>();
     }
 
     public int size(){ return pets.size();}

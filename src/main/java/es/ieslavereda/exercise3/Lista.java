@@ -37,7 +37,6 @@ public class Lista<T>{
         Node<T> aux = head;
         Node<T> aux2 = head.getNext();
         if(index==0){
-            aux = head;
             head = head.getNext();
             size--;
             return aux.getElem();
@@ -52,8 +51,8 @@ public class Lista<T>{
     }
 
     private class Node<T>{
-        T elem;
-        Node<T> next;
+        private final T elem;
+        private Node<T> next;
 
         public Node(T elem){
             this.elem = elem;

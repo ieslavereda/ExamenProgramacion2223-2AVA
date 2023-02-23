@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class MyModelTAD implements IPetRepository {
 
-    private Lista<Pet> myPets;
+    private final Lista<Pet> myPets;
     public MyModelTAD(){
         myPets = new Lista<>();
     }

@@ -5,7 +5,7 @@ import java.util.Set;
 public class Cat extends Pet {
 
     // ATTRIBUTES
-    private boolean longHair;
+    private final boolean longHair;
     
     // CONSTRUCTOR
     public Cat(String name, String owner, int age, Set<Color> colors, boolean longHair) {
