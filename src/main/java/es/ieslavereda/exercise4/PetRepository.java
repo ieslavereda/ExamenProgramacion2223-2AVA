@@ -9,7 +9,7 @@ import java.util.Set;
 
 public class PetRepository implements IPetRepository {
 
-    final Set<Pet> pets;
+    private final Set<Pet> pets;
 
     public static final Comparator<Pet> SORT_ALPH = (o1, o2) -> o1.getName().compareTo(o2.getName());
     public static final Comparator<Pet> SORT_AGE= new Comparator<>() {

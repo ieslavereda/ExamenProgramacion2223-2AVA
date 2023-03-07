@@ -9,6 +9,8 @@ import es.ieslavereda.exercise4.PetRepository;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static es.ieslavereda.exercise4.PetRepository.SORT_AGE;
+
 public class PetPrinting {
     public static void main(String[] args) {
 
@@ -37,8 +39,16 @@ public class PetPrinting {
         //List of all alive animals sorted by age.
         System.out.println(petList.stream()
                 .filter(Pet::getAlive)
-                .sorted(PetRepository.SORT_AGE)
+                .sorted(SORT_AGE)
                 .collect(Collectors.toList()));
+
+        List<Pet> aux = new ArrayList<>();
+        for (Pet p : petList) {
+            if (p.getAlive())
+                aux.add(p);
+        }
+        aux.sort(SORT_AGE);
+        System.out.println(aux);
 
         //List of all white cats
         List<Pet> whities = petList.stream()

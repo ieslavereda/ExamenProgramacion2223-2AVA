@@ -13,15 +13,18 @@ public class Canary extends Bird {
         this.singing = singing;
     }
 
+    @Override
     public void speak() {
         System.out.println("PIO PIO");
     }
     public void greets() {
         System.out.println("Hello, how are you?");
     }
+    @Override
     public void fly() {
         this.setFly(true);
     }
+    @Override
     public void repose() {this.setFly(false);}
     
     // GETTERS & SETTERS
